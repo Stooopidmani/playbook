@@ -1,0 +1,15 @@
+---
+  name : This playbook is to Install httpd on RHEL
+  hosts: all
+  tasks:
+    - name: installing httpd 
+      dnf:
+        service: httpd
+        state: latest
+      register: httpd_installed
+    
+    - name : httpd status
+      debug: 
+        msg: "Httpd in installed on {{inventory.hostname}}"
+        when: httpd_installed.changed
+      
