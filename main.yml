@@ -1,0 +1,9 @@
+---
+- name: Installing httpd on RHEL
+  hosts: all
+  tasks:
+    - name: Install httpd
+      dnf:
+        name: httpd
+        state: latest
+
